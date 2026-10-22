@@ -115,6 +115,29 @@ td.n,th.n{text-align:right;font-family:var(--mono)}
 .flow{margin-top:28px;overflow-x:auto}
 .flow svg{min-width:720px;width:100%;height:auto;display:block}
 
+
+/* ventures */
+.venture{display:grid;grid-template-columns:1fr 1.25fr;gap:28px;background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:24px;margin-bottom:24px}
+.venture>*{min-width:0}
+.venture .meta{font-family:var(--mono);font-size:12px;color:var(--ink-3)}
+.venture h3{margin:4px 0 10px}
+.venture p{font-size:15px;color:var(--ink-2)}
+.ue{margin-top:14px;width:100%;font-size:14px}
+.ue td{padding:6px 8px}
+.ue tr.total td{font-weight:600;border-top:2px solid var(--ink);border-bottom:0}
+.formula{margin-top:12px;font-family:var(--mono);font-size:13px;background:var(--bg);border:1px solid var(--rule);border-radius:6px;padding:8px 12px}
+.sides{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.side{border:1px solid var(--rule);border-radius:8px;padding:10px 12px;font-size:13px;color:var(--ink-2)}
+.side b{display:block;color:var(--ink);font-size:14px;margin-bottom:2px}
+.slides{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.slides figure{margin:0}
+.slides img{display:block;width:100%;height:auto;border-radius:6px;border:1px solid var(--rule)}
+.slides figure.wide{grid-column:1/-1}
+.slides figcaption{font-size:12px;color:var(--ink-3);margin-top:4px}
+.win{display:inline-flex;gap:8px;align-items:center;font-size:13px;font-weight:600;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:3px 12px;margin-bottom:10px}
+@media (max-width:860px){.venture{grid-template-columns:1fr}}
+@media (max-width:520px){.sides{grid-template-columns:1fr}}
+
 /* agents */
 .agents{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
 .agent{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:14px;min-width:0}
@@ -178,7 +201,7 @@ footer{padding-block:32px;color:var(--ink-3);font-size:13px;border-top:1px solid
 
 <nav class="top"><div class="wrap">
   <a class="brand" href="#top">Layan Alsayeh</a>
-  <div class="navlinks"><a href="#clinic">Clinic analytics</a><a href="#agents">AI agents</a><a href="#experience">Experience</a><a href="#contact">Contact</a></div>
+  <div class="navlinks"><a href="#clinic">Clinic analytics</a><a href="#ventures">Ventures</a><a href="#agents">AI agents</a><a href="#experience">Experience</a><a href="#contact">Contact</a></div>
 </div></nav>
 
 <main id="top">
@@ -188,7 +211,7 @@ footer{padding-block:32px;color:var(--ink-3);font-size:13px;border-top:1px solid
       <div class="eyebrow">Business Intelligence &amp; Data Analytics · Amman</div>
       <h1 style="margin-top:12px">I build the data systems <em>small businesses run on.</em></h1>
       <p class="lead">Dashboards, databases and AI agents that turn scattered spreadsheets into decisions a manager can act on. Final-year BIDA student at the German Jordanian University, with analytics experience at EY Forensics and a live analytics platform running at a multi-clinic dental practice.</p>
-      <div class="cta"><a class="btn primary" href="#clinic">Open the live dashboard demo</a><a class="btn ghost" href="#contact">Get in touch</a></div>
+      <div class="cta"><a class="btn primary" href="#clinic">Open the live dashboard demo</a><a class="btn ghost" href="Layan_Alsayeh_CV.pdf" target="_blank" rel="noopener">Download CV (PDF)</a></div>
     </div>
     <div class="facts">
       <div class="fact"><b>14 modules</b><span>in the clinic analytics platform, from collections to partner equity</span></div>
@@ -299,6 +322,55 @@ footer{padding-block:32px;color:var(--ink-3);font-size:13px;border-top:1px solid
   </div>
 </div></section>
 
+
+<!-- VENTURES -->
+<section class="block" id="ventures"><div class="wrap">
+  <div class="sec-head">
+    <div><div class="eyebrow">Venture work</div><h2 style="margin-top:8px">Business cases and pitching</h2></div>
+    <p>Startup concepts I researched, modelled and pitched: who pays, what it costs to serve them, when it breaks even, and how it beats what already exists.</p>
+  </div>
+
+  <article class="venture">
+    <div>
+      <div class="meta">Business study · Jordan · two-sided marketplace</div>
+      <h3>Glow Pass: beauty membership marketplace</h3>
+      <p>A monthly membership for recurring beauty services. Members pay a flat fee, partner salons are paid per visit and fill their off-peak slots, and the platform keeps the margin. I built the market research, unit economics, 12-month model and a validation plan with go/no-go gates before any money is spent.</p>
+      <div class="sides">
+        <div class="side"><b>Members</b>Women 20–35 in West Amman with 2+ beauty visits a month. Plans from 25 to 75 JOD.</div>
+        <div class="side"><b>Salons</b>Mid to upscale, free to join, paid every 1–2 weeks for visits that would otherwise sit empty.</div>
+      </div>
+      <table class="ue"><tbody>
+        <tr><td>Average plan price</td><td class="n">38.0 JOD</td></tr>
+        <tr><td>Salon payouts (members use ~80% of visits)</td><td class="n">−22.0</td></tr>
+        <tr><td>Payment fees and promos</td><td class="n">−1.2</td></tr>
+        <tr class="total"><td>Contribution per member</td><td class="n">14.8 JOD</td></tr>
+      </tbody></table>
+      <div class="formula">Break-even = 400 JOD fixed costs ÷ 14.8 ≈ 27 members</div>
+    </div>
+    <div class="chart-card" style="align-self:start">
+      <h4>Monthly net result, first 12 months</h4>
+      <div class="sub">JOD · paying members under each month · scenario estimates</div>
+      <div class="cv" style="height:300px"><canvas id="c-glow" aria-label="Monthly net result for 12 months"></canvas></div>
+      <p style="font-size:13px;margin-top:10px">Profitable from month 4 at 38 members, reaching about 2,300 JOD a month at 210 members. Gate 1 needs 150 waitlist sign-ups and 10 salons agreeing to rates before launch spending starts.</p>
+    </div>
+  </article>
+
+  <article class="venture">
+    <div>
+      <div class="win">★ 1st place · university pitch competition</div>
+      <div class="meta">Pitch deck · brand · competitive positioning</div>
+      <h3>Serenity: customizable, inclusive wearables</h3>
+      <p>An e-commerce concept for fully customizable footwear and wearables that combine style with medical needs, including orthopaedic and amputee requirements, supported by AI style recommendations.</p>
+      <p style="margin-top:10px">I built the full pitch: the problem, brand identity, differentiating features, business model and revenue streams, roadmap and investment ask. The positioning map shows the gap Serenity fills: local and global competitors each cover medical focus, customization or AI matching, but none combine all three.</p>
+    </div>
+    <div class="slides">
+      <figure class="wide"><img src="img/serenity-competitors.jpg" alt="Competitor positioning Venn diagram with Serenity at the intersection of medical focus, customization and AI matching" loading="lazy" width="1200" height="675"><figcaption>Competitive positioning</figcaption></figure>
+      <figure><img src="img/serenity-brand.jpg" alt="Serenity brand identity slide with logo" loading="lazy" width="1200" height="675"><figcaption>Brand identity</figcaption></figure>
+      <figure><img src="img/serenity-features.jpg" alt="Differentiating features slide" loading="lazy" width="1200" height="675"><figcaption>Differentiating features</figcaption></figure>
+    </div>
+  </article>
+</div></section>
+
 <!-- AGENTS -->
 <section class="block" id="agents"><div class="wrap">
   <div class="sec-head">
@@ -364,7 +436,7 @@ footer{padding-block:32px;color:var(--ink-3);font-size:13px;border-top:1px solid
 <!-- CONTACT -->
 <section class="block" id="contact"><div class="wrap">
   <div class="eyebrow">Contact</div>
-  <h2 style="margin-top:8px">Let's talk</h2>
+  <div style="display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap"><h2 style="margin-top:8px">Let's talk</h2><a class="btn primary" href="Layan_Alsayeh_CV.pdf" target="_blank" rel="noopener">Download CV (PDF)</a></div>
   <div class="contact">
     <div class="c-item"><span class="lab">Phone / WhatsApp</span><span class="val">+962 79 713 5176</span><button class="copy" data-copy="+962797135176" id="cp-phone">Copy</button></div>
     <div class="c-item"><span class="lab">Email</span><span class="val">layanalsayeh12@gmail.com</span><button class="copy" data-copy="layanalsayeh12@gmail.com" id="cp-mail">Copy</button></div>
@@ -450,6 +522,16 @@ footer{padding-block:32px;color:var(--ink-3);font-size:13px;border-top:1px solid
   function draw(tab){
     const s1=css('--s1'),s2=css('--s2'),s3=css('--s3'),acc=css('--accent'),surf=css('--surface');
     const m=months.slice(-range);
+
+    if(tab==='glow'){
+      const mem=[10,18,27,38,50,64,80,98,120,145,175,210], net=[-252,-170,-73,53,195,365,566,796,1085,1419,1826,2308];
+      const o=base(); o.interaction={mode:'nearest',intersect:true};
+      o.scales.x.ticks.callback=(v,i)=>['M'+(i+1),mem[i]+''];
+      o.plugins.tooltip.callbacks.label=c=>` Net ${fmt(c.parsed.y)} JD · ${mem[c.dataIndex]} members`;
+      make('c-glow',{type:'bar',data:{labels:mem.map((_,i)=>'M'+(i+1)),datasets:[{label:'Net',data:net,
+        backgroundColor:net.map(v=>v<0?css('--crit'):acc),borderRadius:4,barPercentage:.7}]},options:o});
+      return;
+    }
     if(tab==='overview'){
       const o=base(); o.scales.y.ticks.callback=v=>fmt(v/1000)+'k';
       make('c-trend',{type:'line',data:{labels:m,datasets:[
@@ -492,8 +574,8 @@ footer{padding-block:32px;color:var(--ink-3);font-size:13px;border-top:1px solid
   document.querySelectorAll('[data-range]').forEach(b=>b.addEventListener('click',()=>{
     range=+b.dataset.range; document.querySelectorAll('[data-range]').forEach(x=>x.setAttribute('aria-pressed',x===b)); draw('overview');
   }));
-  function redrawAll(){ draw(current); }
-  if(window.Chart){ Chart.defaults.font.family='IBM Plex Sans, sans-serif'; draw('overview'); }
+  function redrawAll(){ draw(current); draw('glow'); }
+  if(window.Chart){ Chart.defaults.font.family='IBM Plex Sans, sans-serif'; draw('overview'); draw('glow'); }
   try{ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>setTimeout(redrawAll,50)); }catch(e){}
   new MutationObserver(()=>setTimeout(redrawAll,50)).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
 
