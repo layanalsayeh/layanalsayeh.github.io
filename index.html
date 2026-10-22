@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Layan Alsayeh: Business Intelligence & Data Analytics. Dashboards, databases and automation for small businesses.">
+<meta property="og:title" content="Layan Alsayeh · Portfolio">
+<meta property="og:description" content="Data systems, dashboards and automation for small businesses.">
+<title>Layan Alsayeh · Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a working operator's portfolio — calm editorial frame, live dashboard as the centrepiece */
+:root{
+  --bg:#f4f6f8; --surface:#ffffff; --surface-2:#eaeef2; --ink:#16202b; --ink-2:#4b5866; --ink-3:#7a8693;
+  --rule:#d8dee5; --accent:#0e6b67; --accent-ink:#ffffff; --accent-soft:#dcefed;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1f7a3a; --warn:#a96a00; --crit:#c23a39;
+  --display:"Newsreader", Georgia, "Times New Roman", serif;
+  --body:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#11161c; --surface:#18202a; --surface-2:#212b36; --ink:#e9edf1; --ink-2:#b2bcc6; --ink-3:#8692a0;
+  --rule:#2c3743; --accent:#3fb3aa; --accent-ink:#0b1514; --accent-soft:#17312f;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#4cbb6c; --warn:#e0a63a; --crit:#ef6e6c; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#11161c; --surface:#18202a; --surface-2:#212b36; --ink:#e9edf1; --ink-2:#b2bcc6; --ink-3:#8692a0;
+  --rule:#2c3743; --accent:#3fb3aa; --accent-ink:#0b1514; --accent-soft:#17312f;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#4cbb6c; --warn:#e0a63a; --crit:#ef6e6c; color-scheme:dark }
+
+*{box-sizing:border-box}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+[hidden]{display:none!important}
+img{max-width:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:var(--accent)}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.15;text-wrap:balance;margin:0}
+h2{font-size:clamp(28px,4vw,38px)}
+h3{font-size:22px}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--ink-2)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+nav.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+nav.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:12px}
+.brand{font-family:var(--display);font-size:20px;font-weight:600;color:var(--ink);text-decoration:none}
+.navlinks{display:flex;gap:18px;flex-wrap:wrap;font-size:14px}
+.navlinks a{color:var(--ink-2);text-decoration:none}
+.navlinks a:hover{color:var(--accent)}
+
+/* hero */
+.hero{padding-block:56px 40px;display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:end}
+.hero h1{font-size:clamp(36px,5.6vw,60px);letter-spacing:-.01em}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero p.lead{font-size:18px;color:var(--ink-2);margin-top:18px;max-width:58ch}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:6px;font:500 15px var(--body);text-decoration:none;border:1px solid var(--accent);cursor:pointer}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{background:transparent;color:var(--accent)}
+.facts{display:flex;flex-direction:column;border-left:1px solid var(--rule)}
+.fact{padding:12px 0 12px 20px;border-bottom:1px solid var(--rule)}
+.fact:last-child{border-bottom:0}
+.fact b{display:block;font-family:var(--display);font-size:28px;font-weight:600;line-height:1.1}
+.fact span{font-size:14px;color:var(--ink-2)}
+
+section.block{padding-block:56px;border-top:1px solid var(--rule)}
+.sec-head{display:grid;grid-template-columns:1fr 1.3fr;gap:32px;margin-bottom:28px;align-items:end}
+.sec-head p{color:var(--ink-2);max-width:62ch}
+
+/* dashboard demo */
+.dash{background:var(--surface);border:1px solid var(--rule);border-radius:10px;overflow:hidden}
+.dash-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 16px;border-bottom:1px solid var(--rule);background:var(--surface-2)}
+.dash-title{font-weight:600;font-size:15px}
+.demo-tag{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--warn);border:1px solid currentColor;padding:2px 8px;border-radius:999px}
+.tabs{display:flex;gap:2px;padding:0 8px;border-bottom:1px solid var(--rule);overflow-x:auto}
+.tab{background:none;border:0;border-bottom:2px solid transparent;padding:12px 12px;font:500 14px var(--body);color:var(--ink-2);cursor:pointer;white-space:nowrap}
+.tab[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent)}
+.panel{padding:20px 16px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.kpi{border:1px solid var(--rule);border-radius:8px;padding:12px 14px}
+.kpi .k{font-size:12px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.06em}
+.kpi .v{font-family:var(--mono);font-size:22px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi .d{font-size:12px}
+.up{color:var(--good)} .down{color:var(--crit)}
+.chart-row{display:grid;grid-template-columns:1.6fr 1fr;gap:16px}
+.chart-card{border:1px solid var(--rule);border-radius:8px;padding:14px;min-width:0}
+.chart-card h4{margin:0 0 4px;font-size:14px;font-weight:600}
+.chart-card .sub{font-size:12px;color:var(--ink-3);margin-bottom:8px}
+.cv{position:relative;height:260px}
+.legend{display:flex;gap:14px;font-size:12px;color:var(--ink-2);flex-wrap:wrap;margin-bottom:6px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.seg{display:inline-flex;border:1px solid var(--rule);border-radius:6px;overflow:hidden}
+.seg button{background:none;border:0;padding:4px 10px;font:500 12px var(--body);color:var(--ink-2);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.tbl-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;font-weight:600;color:var(--ink-3);font-size:11px;text-transform:uppercase;letter-spacing:.06em;padding:8px;border-bottom:1px solid var(--rule)}
+td{padding:8px;border-bottom:1px solid var(--rule);font-variant-numeric:tabular-nums}
+td.n,th.n{text-align:right;font-family:var(--mono)}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;padding:2px 9px;border-radius:999px;border:1px solid currentColor;white-space:nowrap}
+.pill.good{color:var(--good)} .pill.warn{color:var(--warn)} .pill.crit{color:var(--crit)}
+.checks{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.check{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;border:1px solid var(--rule);border-radius:8px;padding:10px 12px;font-size:14px}
+.check small{display:block;color:var(--ink-3);font-size:12px}
+
+.case{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:28px}
+.case h5{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:0 0 6px;font-weight:500}
+.case p{font-size:15px;color:var(--ink-2)}
+.flow{margin-top:28px;overflow-x:auto}
+.flow svg{min-width:720px;width:100%;height:auto;display:block}
+
+/* agents */
+.agents{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.agent{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.agent .meta{font-family:var(--mono);font-size:12px;color:var(--ink-3)}
+.agent p{font-size:15px;color:var(--ink-2)}
+.mini{border:1px solid var(--rule);border-radius:8px;padding:12px;background:var(--bg);font-size:13px}
+.meter{display:grid;grid-template-columns:110px 1fr 74px;gap:10px;align-items:center;margin:6px 0}
+.meter .bar{height:8px;border-radius:4px;background:var(--surface-2);overflow:hidden}
+.meter .bar span{display:block;height:100%;border-radius:4px;background:var(--accent)}
+.meter .bar span.over{background:var(--crit)}
+.meter .amt{font-family:var(--mono);font-size:12px;text-align:right}
+.tx{display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding:6px 0;border-bottom:1px dashed var(--rule)}
+.tx:last-child{border-bottom:0}
+.tx .why{grid-column:1/-1;font-size:11px;color:var(--ink-3);font-family:var(--mono)}
+.chip{font-size:11px;padding:1px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-weight:500}
+.brief h6{margin:10px 0 4px;font-size:11px;font-family:var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:500}
+.brief h6:first-child{margin-top:0}
+.brief ul{margin:0;padding-left:18px}
+.closet{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.piece{aspect-ratio:3/4;max-width:100%;border-radius:6px;border:1px solid var(--rule);display:grid;place-items:center;background:var(--surface)}
+.piece svg{width:70%;height:70%}
+.stylist{margin-top:10px;padding:10px 12px;border-radius:8px;background:var(--accent-soft);color:var(--ink);font-size:13px}
+canvas#yard{width:100%;height:190px;display:block;border-radius:8px;background:var(--bg);border:1px solid var(--rule)}
+
+/* experience */
+.xp{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.xp-item{border-top:2px solid var(--accent);padding-top:14px}
+.xp-item .when{font-family:var(--mono);font-size:12px;color:var(--ink-3)}
+.xp-item h3{font-size:20px;margin:4px 0 8px}
+.xp-item ul{margin:0;padding-left:18px;color:var(--ink-2);font-size:15px}
+.award{margin-top:28px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;padding:18px 20px;border:1px solid var(--rule);border-radius:10px;background:var(--surface)}
+.award b{font-family:var(--display);font-size:24px}
+
+/* contact */
+.contact{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+.c-item{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.c-item .lab{font-family:var(--mono);font-size:12px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.08em}
+.c-item .val{font-size:16px;font-weight:500;word-break:break-all;user-select:all}
+.copy{align-self:flex-start;background:none;border:1px solid var(--rule);border-radius:6px;padding:4px 10px;font:500 12px var(--body);color:var(--ink-2);cursor:pointer}
+footer{padding-block:32px;color:var(--ink-3);font-size:13px;border-top:1px solid var(--rule);margin-top:56px}
+
+@media (max-width:860px){
+  .hero,.sec-head,.chart-row,.agents{grid-template-columns:1fr}
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .case,.xp,.contact{grid-template-columns:1fr 1fr}
+  .checks{grid-template-columns:1fr}
+  .facts{border-left:0;border-top:1px solid var(--rule)}
+  .fact{padding-left:0}
+}
+@media (max-width:520px){
+  .case,.xp,.contact{grid-template-columns:1fr}
+  .navlinks{display:none}
+  .closet{grid-template-columns:repeat(3,1fr)}
+  .meter{grid-template-columns:90px 1fr 64px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+
+<nav class="top"><div class="wrap">
+  <a class="brand" href="#top">Layan Alsayeh</a>
+  <div class="navlinks"><a href="#clinic">Clinic analytics</a><a href="#agents">AI agents</a><a href="#experience">Experience</a><a href="#contact">Contact</a></div>
+</div></nav>
+
+<main id="top">
+<div class="wrap">
+  <header class="hero">
+    <div>
+      <div class="eyebrow">Business Intelligence &amp; Data Analytics · Amman</div>
+      <h1 style="margin-top:12px">I build the data systems <em>small businesses run on.</em></h1>
+      <p class="lead">Dashboards, databases and AI agents that turn scattered spreadsheets into decisions a manager can act on. Final-year BIDA student at the German Jordanian University, with analytics experience at EY Forensics and a live analytics platform running at a multi-clinic dental practice.</p>
+      <div class="cta"><a class="btn primary" href="#clinic">Open the live dashboard demo</a><a class="btn ghost" href="#contact">Get in touch</a></div>
+    </div>
+    <div class="facts">
+      <div class="fact"><b>14 modules</b><span>in the clinic analytics platform, from collections to partner equity</span></div>
+      <div class="fact"><b>~300 findings</b><span>tracked in the red-flag system I built at EY Forensics</span></div>
+      <div class="fact"><b>1st place</b><span>university pitch competition, with the startup concept Serenity</span></div>
+    </div>
+  </header>
+</div>
+
+<!-- CLINIC -->
+<section class="block" id="clinic"><div class="wrap">
+  <div class="sec-head">
+    <div><div class="eyebrow">Featured project</div><h2 style="margin-top:8px">Persona Clinic Analytics</h2></div>
+    <p>A reporting and decision-support platform for a multi-clinic, multi-doctor dental practice. It replaced a stack of Excel exports with one place where management sees revenue, collections, installment risk and doctor performance every month. The demo below runs on generated figures so no patient or financial data is exposed.</p>
+  </div>
+
+  <div class="dash" role="region" aria-label="Clinic analytics dashboard demo">
+    <div class="dash-bar"><span class="dash-title">Clinic Analytics · Management view</span><span class="demo-tag">Demo data · illustrative figures</span></div>
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" aria-selected="true" data-tab="overview" id="t-overview">Overview</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="collections" id="t-collections">Collections</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="doctors" id="t-doctors">Doctors</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="installments" id="t-installments">Installments</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="checks" id="t-checks">Data checks</button>
+    </div>
+
+    <div class="panel" data-panel="overview">
+      <div class="kpis" id="kpis"></div>
+      <div class="chart-row">
+        <div class="chart-card">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap">
+            <div><h4>Billed vs collected</h4><div class="sub">JOD per month</div></div>
+            <div class="seg" role="group" aria-label="Range"><button aria-pressed="false" data-range="6" id="r6">6M</button><button aria-pressed="true" data-range="9" id="r9">9M</button></div>
+          </div>
+          <div class="legend"><span><i style="background:var(--s1)"></i>Billed</span><span><i style="background:var(--s3)"></i>Collected</span></div>
+          <div class="cv"><canvas id="c-trend" aria-label="Billed versus collected by month"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <h4>Collection rate</h4><div class="sub">Collected ÷ billed, same month</div>
+          <div class="cv"><canvas id="c-rate" aria-label="Collection rate by month"></canvas></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" data-panel="collections" hidden>
+      <div class="chart-row">
+        <div class="chart-card"><h4>Collections by payment method</h4><div class="sub">JOD, last 3 months</div><div class="cv"><canvas id="c-methods"></canvas></div></div>
+        <div class="chart-card"><h4>Where the money came from</h4><div class="sub">Own-month payments vs recovery of older balances</div>
+          <div class="legend"><span><i style="background:var(--s1)"></i>Own month</span><span><i style="background:var(--s2)"></i>Prior balances</span></div>
+          <div class="cv"><canvas id="c-ar"></canvas></div></div>
+      </div>
+    </div>
+
+    <div class="panel" data-panel="doctors" hidden>
+      <div class="chart-row">
+        <div class="chart-card"><h4>Revenue by doctor</h4><div class="sub">JOD, last 3 months</div><div class="cv"><canvas id="c-docs"></canvas></div></div>
+        <div class="chart-card"><h4>Commission statement</h4><div class="sub">Calculated per procedure and rate</div>
+          <div class="tbl-wrap"><table><thead><tr><th>Doctor</th><th class="n">Revenue</th><th class="n">Rate</th><th class="n">Commission</th></tr></thead><tbody id="comm"></tbody></table></div></div>
+      </div>
+    </div>
+
+    <div class="panel" data-panel="installments" hidden>
+      <div class="chart-row">
+        <div class="chart-card"><h4>Outstanding installments by age</h4><div class="sub">JOD, days past due</div><div class="cv"><canvas id="c-aging"></canvas></div></div>
+        <div class="chart-card"><h4>Follow-up list</h4><div class="sub">Highest overdue first</div>
+          <div class="tbl-wrap"><table><thead><tr><th>Plan</th><th class="n">Overdue</th><th>Status</th></tr></thead><tbody id="follow"></tbody></table></div></div>
+      </div>
+    </div>
+
+    <div class="panel" data-panel="checks" hidden>
+      <p class="muted" style="font-size:14px;margin-bottom:12px">Automated checks run on every data upload, so bad records are caught before they reach a monthly report.</p>
+      <div class="checks" id="checks"></div>
+    </div>
+  </div>
+
+  <div class="case">
+    <div><h5>Problem</h5><p>Revenue, installment plans, commissions and attendance lived in separate Excel files. Month-end reporting was slow and overdue balances slipped through.</p></div>
+    <div><h5>What I built</h5><p>A 14-module dashboard, then a v2 on a MySQL database with logins for admin, manager and viewer roles, browse pages for every record type, and a Power BI model.</p></div>
+    <div><h5>Stack</h5><p>MySQL, PHP, JavaScript and Chart.js, Power BI (DAX), Excel. Deployed on the clinic's local server with Arabic and English views.</p></div>
+    <div><h5>Outcome</h5><p>One source of truth for ~1,900 patients. Discount approvals and overdue installments were identified as the highest-impact decisions to support next.</p></div>
+  </div>
+
+  <div class="flow" aria-label="Data flow diagram">
+    <svg viewBox="0 0 960 150" role="img">
+      <title>Data flow: source files to MySQL to the dashboard and Power BI, with checks and role-based access</title>
+      <g font-family="IBM Plex Sans, sans-serif" font-size="13">
+        <rect x="8" y="40" width="170" height="70" rx="8" fill="var(--surface)" stroke="var(--rule)"/>
+        <text x="93" y="68" text-anchor="middle" fill="var(--ink)" font-weight="600">Source files</text>
+        <text x="93" y="88" text-anchor="middle" fill="var(--ink-3)" font-size="11.5">Excel exports · attendance</text>
+        <rect x="248" y="40" width="170" height="70" rx="8" fill="var(--surface)" stroke="var(--rule)"/>
+        <text x="333" y="68" text-anchor="middle" fill="var(--ink)" font-weight="600">Cleaning + checks</text>
+        <text x="333" y="88" text-anchor="middle" fill="var(--ink-3)" font-size="11.5">10 automated validations</text>
+        <rect x="488" y="40" width="170" height="70" rx="8" fill="var(--accent-soft)" stroke="var(--accent)"/>
+        <text x="573" y="68" text-anchor="middle" fill="var(--ink)" font-weight="600">MySQL database</text>
+        <text x="573" y="88" text-anchor="middle" fill="var(--ink-2)" font-size="11.5">patients · payments · plans</text>
+        <rect x="738" y="8" width="214" height="58" rx="8" fill="var(--surface)" stroke="var(--rule)"/>
+        <text x="845" y="33" text-anchor="middle" fill="var(--ink)" font-weight="600">Web dashboard</text>
+        <text x="845" y="52" text-anchor="middle" fill="var(--ink-3)" font-size="11.5">admin · manager · viewer</text>
+        <rect x="738" y="84" width="214" height="58" rx="8" fill="var(--surface)" stroke="var(--rule)"/>
+        <text x="845" y="109" text-anchor="middle" fill="var(--ink)" font-weight="600">Power BI model</text>
+        <text x="845" y="128" text-anchor="middle" fill="var(--ink-3)" font-size="11.5">DAX measures · self-service</text>
+        <g stroke="var(--ink-3)" stroke-width="1.5" fill="none">
+          <path d="M178 75H240"/><path d="M418 75H480"/><path d="M658 75C700 75 700 37 730 37"/><path d="M658 75C700 75 700 113 730 113"/>
+        </g>
+        <g fill="var(--ink-3)"><path d="M240 70l8 5-8 5z"/><path d="M480 70l8 5-8 5z"/><path d="M730 32l8 5-8 5z"/><path d="M730 108l8 5-8 5z"/></g>
+      </g>
+    </svg>
+  </div>
+</div></section>
+
+<!-- AGENTS -->
+<section class="block" id="agents"><div class="wrap">
+  <div class="sec-head">
+    <div><div class="eyebrow">AI agents &amp; apps</div><h2 style="margin-top:8px">Automation that does the routine work</h2></div>
+    <p>Systems I designed and run myself, built on AI agents connected to email, calendar, Notion and a database. Each one replaces a recurring manual task. The examples below use sample content.</p>
+  </div>
+  <div class="agents">
+
+    <article class="agent">
+      <div><div class="meta">Notion · bank statements · learned rules</div><h3>Budget Agent</h3></div>
+      <p>Takes a full month's bank statement, categorises every transaction from merchant names and learned rules, asks only when it is unsure, and updates a budget page showing spend against each category.</p>
+      <div class="mini">
+        <div id="meters"></div>
+        <div style="margin-top:10px;border-top:1px solid var(--rule);padding-top:8px" id="txs"></div>
+      </div>
+    </article>
+
+    <article class="agent">
+      <div><div class="meta">Scheduled daily · Gmail · Calendar · web</div><h3>Daily Briefing Agent</h3></div>
+      <p>Runs every morning before I wake up. It reads new email, filters hundreds of mass university messages down to the few that matter, pulls deadlines into my calendar and suggests events that fit my goals.</p>
+      <div class="mini brief">
+        <h6>Needs a reply</h6><ul><li>Client confirmed delivery fee, approve final checkout</li><li>Thesis partner shared two topic options</li></ul>
+        <h6>Deadlines</h6><ul><li>Data Analysis first exam · Tue 10 Nov</li><li>Midterm week starts 21 Nov</li></ul>
+        <h6>Worth attending</h6><ul><li>Data &amp; BI meetup, Amman · Thu 6 pm</li></ul>
+        <h6>Filtered out</h6><ul><li>38 mass emails not relevant to my courses or year</li></ul>
+      </div>
+    </article>
+
+    <article class="agent">
+      <div><div class="meta">Web app · database · image processing · AI stylist</div><h3>Wardrobe App</h3></div>
+      <p>A web app that turns outfit photos into a digital closet. An image pipeline cuts each garment out of the photo, pieces are stored in a database, and an AI stylist suggests outfits for an occasion, season and time of day from what I own.</p>
+      <div class="mini">
+        <div class="closet" id="closet"></div>
+        <div class="stylist"><b>Stylist:</b> For an evening event in autumn, try the black wide-leg trousers with the ivory knit and the camel coat.</div>
+      </div>
+    </article>
+
+    <article class="agent">
+      <div><div class="meta">Canvas simulation · agent workflow visual</div><h3>Workyard</h3></div>
+      <p>A live visual of AI agents moving through a task queue, one zone per project. It shows what is being worked on, what is queued and what is done, so a manager can see a team of agents at a glance.</p>
+      <canvas id="yard" aria-label="Animated agents moving between task stations"></canvas>
+    </article>
+  </div>
+</div></section>
+
+<!-- EXPERIENCE -->
+<section class="block" id="experience"><div class="wrap">
+  <div class="sec-head">
+    <div><div class="eyebrow">Experience</div><h2 style="margin-top:8px">Where this work comes from</h2></div>
+    <p>Audit analytics, client delivery and operations. Client names are kept confidential.</p>
+  </div>
+  <div class="xp">
+    <div class="xp-item"><div class="when">Jul – Sep 2026</div><h3>EY · Forensics &amp; Integrity Services</h3>
+      <ul><li>Built a ~300-finding red-flag tracker with an automated reference system</li><li>Classified a bank's contract register into six document types, linked to parent agreements</li><li>Built an 82-slide client proposal under ISO 22361 and ISO 31000</li></ul></div>
+    <div class="xp-item"><div class="when">Sep 2024 – Present</div><h3>Persona Dental Clinic</h3>
+      <ul><li>Project Development Manager for analytics and systems</li><li>Built and deployed the analytics platform above</li><li>Scoping a patient portal for bookings, balances and installment payments</li></ul></div>
+    <div class="xp-item"><div class="when">Sep 2026 – Present</div><h3>Layan Digitals</h3>
+      <ul><li>Freelance studio building online stores for business owners</li><li>Delivered a client store end to end: brand, catalogue, policies, CliQ and card payments</li><li>Modelled running costs so the client could price profitably</li></ul></div>
+  </div>
+  <div class="award"><b>1st place</b><span class="muted">University pitch competition · <i>Serenity</i>, an inclusive startup concept combining orthopaedics, fashion and AI.</span></div>
+</div></section>
+
+<!-- CONTACT -->
+<section class="block" id="contact"><div class="wrap">
+  <div class="eyebrow">Contact</div>
+  <h2 style="margin-top:8px">Let's talk</h2>
+  <div class="contact">
+    <div class="c-item"><span class="lab">Phone / WhatsApp</span><span class="val">+962 79 713 5176</span><button class="copy" data-copy="+962797135176" id="cp-phone">Copy</button></div>
+    <div class="c-item"><span class="lab">Email</span><span class="val">layanalsayeh12@gmail.com</span><button class="copy" data-copy="layanalsayeh12@gmail.com" id="cp-mail">Copy</button></div>
+    <div class="c-item"><span class="lab">LinkedIn</span><a class="val" href="https://www.linkedin.com/in/layan-sayeh-b36765258" target="_blank" rel="noopener">linkedin.com/in/layan-sayeh-b36765258</a></div>
+  </div>
+</div></section>
+</main>
+<footer><div class="wrap">Layan Alsayeh · Amman, Jordan · Dashboard figures on this page are generated for demonstration.</div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+(function(){
+  const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  const fmt = n => n.toLocaleString('en-US',{maximumFractionDigits:0});
+  // ---- deterministic demo data ----
+  let seed = 7; const rnd = () => (seed = (seed*9301+49297)%233280)/233280;
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep'];
+  const billed = months.map((m,i)=> Math.round(38000 + i*1300 + rnd()*5200));
+  const collected = billed.map((b,i)=> Math.round(b*(0.78 + rnd()*0.12 + (i>5?0.04:0))));
+  billed[8] = Math.round(billed[7]*1.043); collected[8] = Math.round(billed[8]*0.902); collected[7] = Math.round(billed[7]*0.874);
+  const rate = billed.map((b,i)=> +(collected[i]/b*100).toFixed(1));
+  const methods = [['Cash',41800],['Visa',33600],['CliQ',21900],['Bank transfer',9800],['Wallets',6200]];
+  const own = collected.map(c=>Math.round(c*0.72)); const prior = collected.map((c,i)=>c-own[i]);
+  const docs = [['Doctor A',58400,0.35],['Doctor B',36900,0.30],['Doctor C',27100,0.30],['Doctor D',16800,0.25]];
+  const aging = [['1–30',14200],['31–60',8600],['61–90',5100],['90+',6900]];
+  const follow = [['Plan #2214',1840,'crit','Overdue 90+'],['Plan #1987',1320,'crit','Overdue 90+'],['Plan #2302',960,'warn','61–90 days'],['Plan #2251',740,'warn','31–60 days'],['Plan #2390',410,'good','Reminder sent']];
+  const checks = [
+    ['Payments have a date and positive amount','good','Passed'],['Monthly totals match payment records','warn','2 months to review'],
+    ['Installment plans past due marked overdue','crit','4 plans to fix'],['Duplicate leads (same phone, same day)','warn','11 duplicates'],
+    ['Every treatment has a doctor','good','Passed'],['Phone numbers in a valid format','warn','23 to clean'],
+    ['Appointment dates within a valid range','good','Passed'],['Total due = paid + outstanding','good','Passed'],
+    ['Commission rates set for every doctor','good','Passed'],['No future-dated records','good','Passed']];
+
+  // ---- static parts ----
+  const last = billed.length-1;
+  const k = [
+    ['Billed · Sep', fmt(billed[last])+' JD', ((billed[last]/billed[last-1]-1)*100)],
+    ['Collected · Sep', fmt(collected[last])+' JD', ((collected[last]/collected[last-1]-1)*100)],
+    ['Outstanding', fmt(aging.reduce((s,a)=>s+a[1],0))+' JD', -3.8],
+    ['Collection rate', rate[last]+'%', rate[last]-rate[last-1]]];
+  document.getElementById('kpis').innerHTML = k.map(([l,v,d],i)=>{
+    const good = i===2 ? d<0 : d>=0;
+    return `<div class="kpi"><div class="k">${l}</div><div class="v">${v}</div><div class="d ${good?'up':'down'}">${d>=0?'▲':'▼'} ${Math.abs(d).toFixed(1)}${i===3?' pts':'%'} vs Aug</div></div>`}).join('');
+  document.getElementById('comm').innerHTML = docs.map(([n,r,c])=>`<tr><td>${n}</td><td class="n">${fmt(r)}</td><td class="n">${Math.round(c*100)}%</td><td class="n">${fmt(r*c)}</td></tr>`).join('');
+  const lab = {good:'✓',warn:'!',crit:'✕'};
+  document.getElementById('follow').innerHTML = follow.map(([p,a,s,t])=>`<tr><td>${p}</td><td class="n">${fmt(a)} JD</td><td><span class="pill ${s}">${lab[s]} ${t}</span></td></tr>`).join('');
+  document.getElementById('checks').innerHTML = checks.map(([t,s,r])=>`<div class="check"><span>${t}</span><span class="pill ${s}">${lab[s]} ${r}</span></div>`).join('');
+
+  // budget agent
+  const cats=[['Food & drinks',62,80],['Transport',48,60],['Events & social',94,70],['Groceries',38,50],['Personal care',21,40]];
+  document.getElementById('meters').innerHTML = cats.map(([c,s,b])=>`<div class="meter"><span>${c}</span><div class="bar"><span class="${s>b?'over':''}" style="width:${Math.min(100,s/b*100)}%"></span></div><span class="amt">${s} / ${b} JD</span></div>`).join('');
+  const txs=[['Coffee House Abdoun','3.25','Food & drinks','matched merchant name'],['Fuel station','15.15','Transport','fuel + card surcharge pattern'],['Transfer to friend','8.00','Events & social','split after an outing'],['Online store','27.40','Asked me','new merchant, confidence below threshold']];
+  document.getElementById('txs').innerHTML = txs.map(([m,a,c,w])=>`<div class="tx"><span>${m} · <span style="font-family:var(--mono)">${a} JD</span></span><span class="chip">${c}</span><span class="why">rule: ${w}</span></div>`).join('');
+
+  // closet pieces (simple garment glyphs)
+  const shapes={
+    top:'<path d="M30 15l-18 10 6 14 8-4v45h48V35l8 4 6-14-18-10c-4 8-10 12-20 12s-16-4-20-12z"/>',
+    pants:'<path d="M28 10h44l6 80H58L50 40l-8 50H22z"/>',
+    coat:'<path d="M32 10l-18 12 4 68h28V30l4-6 4 6v60h28l4-68-18-12-14 14z"/>',
+    dress:'<path d="M38 10h24l4 18 18 62H16l18-62z"/>',
+    shoe:'<path d="M14 62c0-10 8-14 16-14 8 0 14 10 26 12 14 2 30 4 30 16v6H14z"/>'};
+  const pieces=[['top','#e9e1d3'],['pants','#1e1e22'],['coat','#b88a5a'],['dress','#6b2737'],['shoe','#2b2b2b'],['top','#ffffff'],['pants','#c9b79c'],['dress','#22334d'],['coat','#3d3d3d'],['shoe','#8b5e3c']];
+  document.getElementById('closet').innerHTML = pieces.map(([s,c])=>`<div class="piece"><svg viewBox="0 0 100 100"><g fill="${c}" stroke="var(--ink-3)" stroke-width="1.5">${shapes[s]}</g></svg></div>`).join('');
+
+  // copy buttons
+  document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',()=>{
+    const t=b.dataset.copy;
+    const done=()=>{b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1500)};
+    try{navigator.clipboard.writeText(t).then(done).catch(()=>{const r=document.createRange();r.selectNodeContents(b.previousElementSibling);const s=getSelection();s.removeAllRanges();s.addRange(r);});}catch(e){}
+  }));
+
+  // ---- charts ----
+  const charts={}; let range=9;
+  function base(){
+    return {responsive:true,maintainAspectRatio:false,animation:{duration:400},
+      interaction:{mode:'index',intersect:false},
+      plugins:{legend:{display:false},tooltip:{backgroundColor:css('--surface'),titleColor:css('--ink'),bodyColor:css('--ink-2'),borderColor:css('--rule'),borderWidth:1,padding:10,
+        callbacks:{label:c=>` ${c.dataset.label||c.label}: ${fmt(c.parsed.y ?? c.parsed.x)}${c.dataset.unit||' JD'}`}}},
+      scales:{x:{grid:{display:false},ticks:{color:css('--ink-3'),font:{family:'IBM Plex Sans'}},border:{color:css('--rule')}},
+              y:{grid:{color:css('--rule')},ticks:{color:css('--ink-3'),font:{family:'IBM Plex Mono',size:11}},border:{display:false}}}};
+  }
+  function make(id,cfg){ if(charts[id]) charts[id].destroy(); const el=document.getElementById(id); if(!el||el.closest('[hidden]')) return; charts[id]=new Chart(el,cfg); }
+  function draw(tab){
+    const s1=css('--s1'),s2=css('--s2'),s3=css('--s3'),acc=css('--accent'),surf=css('--surface');
+    const m=months.slice(-range);
+    if(tab==='overview'){
+      const o=base(); o.scales.y.ticks.callback=v=>fmt(v/1000)+'k';
+      make('c-trend',{type:'line',data:{labels:m,datasets:[
+        {label:'Billed',data:billed.slice(-range),borderColor:s1,backgroundColor:s1,borderWidth:2,pointRadius:0,pointHoverRadius:5,tension:.3},
+        {label:'Collected',data:collected.slice(-range),borderColor:s3,backgroundColor:s3,borderWidth:2,pointRadius:0,pointHoverRadius:5,tension:.3}]},options:o});
+      const r=base(); r.scales.y.min=70; r.scales.y.max=100; r.scales.y.ticks.callback=v=>v+'%';
+      r.plugins.tooltip.callbacks.label=c=>` ${c.parsed.y}%`;
+      make('c-rate',{type:'line',data:{labels:m,datasets:[{label:'Rate',data:rate.slice(-range),borderColor:acc,backgroundColor:acc+'22',fill:true,borderWidth:2,
+        pointRadius:ctx=>ctx.dataIndex===range-1?5:0,pointBackgroundColor:acc,pointBorderColor:surf,pointBorderWidth:2,tension:.3}]},options:r});
+    }
+    if(tab==='collections'){
+      const o=base(); o.indexAxis='y'; o.interaction={mode:'nearest',intersect:true,axis:'y'};
+      o.scales.x={grid:{color:css('--rule')},ticks:{color:css('--ink-3'),callback:v=>fmt(v/1000)+'k',font:{family:'IBM Plex Mono',size:11}},border:{display:false}};
+      o.scales.y={grid:{display:false},ticks:{color:css('--ink-2')},border:{color:css('--rule')}};
+      make('c-methods',{type:'bar',data:{labels:methods.map(x=>x[0]),datasets:[{label:'Collected',data:methods.map(x=>x[1]),backgroundColor:acc,borderRadius:4,barThickness:18}]},options:o});
+      const a=base(); a.scales.x.stacked=true; a.scales.y.stacked=true; a.scales.y.ticks.callback=v=>fmt(v/1000)+'k';
+      make('c-ar',{type:'bar',data:{labels:months.slice(-6),datasets:[
+        {label:'Own month',data:own.slice(-6),backgroundColor:s1,borderColor:surf,borderWidth:{top:2},borderSkipped:'bottom',barThickness:22},
+        {label:'Prior balances',data:prior.slice(-6),backgroundColor:s2,borderRadius:{topLeft:4,topRight:4},borderColor:surf,borderWidth:{bottom:2},borderSkipped:false,barThickness:22}]},options:a});
+    }
+    if(tab==='doctors'){
+      const o=base(); o.indexAxis='y'; o.interaction={mode:'nearest',intersect:true,axis:'y'};
+      o.scales.x={grid:{color:css('--rule')},ticks:{color:css('--ink-3'),callback:v=>fmt(v/1000)+'k',font:{family:'IBM Plex Mono',size:11}},border:{display:false}};
+      o.scales.y={grid:{display:false},ticks:{color:css('--ink-2')},border:{color:css('--rule')}};
+      make('c-docs',{type:'bar',data:{labels:docs.map(d=>d[0]),datasets:[{label:'Revenue',data:docs.map(d=>d[1]),backgroundColor:acc,borderRadius:4,barThickness:20}]},options:o});
+    }
+    if(tab==='installments'){
+      const o=base(); o.interaction={mode:'nearest',intersect:true}; o.scales.y.ticks.callback=v=>fmt(v/1000)+'k';
+      const shades=[0.35,0.55,0.75,1].map(a=>acc+Math.round(a*255).toString(16).padStart(2,'0'));
+      make('c-aging',{type:'bar',data:{labels:aging.map(a=>a[0]+' days'),datasets:[{label:'Outstanding',data:aging.map(a=>a[1]),backgroundColor:shades,borderRadius:4,barThickness:36}]},options:o});
+    }
+  }
+  let current='overview';
+  document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
+    current=t.dataset.tab;
+    document.querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-selected',x===t));
+    document.querySelectorAll('[data-panel]').forEach(p=>p.hidden=p.dataset.panel!==current);
+    draw(current);
+  }));
+  document.querySelectorAll('[data-range]').forEach(b=>b.addEventListener('click',()=>{
+    range=+b.dataset.range; document.querySelectorAll('[data-range]').forEach(x=>x.setAttribute('aria-pressed',x===b)); draw('overview');
+  }));
+  function redrawAll(){ draw(current); }
+  if(window.Chart){ Chart.defaults.font.family='IBM Plex Sans, sans-serif'; draw('overview'); }
+  try{ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>setTimeout(redrawAll,50)); }catch(e){}
+  new MutationObserver(()=>setTimeout(redrawAll,50)).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+
+  // ---- workyard canvas ----
+  const cv=document.getElementById('yard'); const ctx=cv.getContext('2d');
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const zones=[{n:'Queue'},{n:'Research'},{n:'Build'},{n:'Review'},{n:'Done'}];
+  const agents=Array.from({length:6},(_,i)=>({z:i%4,t:rnd(),c:['--s1','--s2','--s3'][i%3],speed:0.004+rnd()*0.004}));
+  let done=12;
+  function size(){const r=cv.getBoundingClientRect();const d=devicePixelRatio||1;cv.width=r.width*d;cv.height=r.height*d;ctx.setTransform(d,0,0,d,0,0);}
+  size(); addEventListener('resize',size);
+  function frame(){
+    const W=cv.getBoundingClientRect().width,H=190; ctx.clearRect(0,0,W,H);
+    const zw=(W-24)/zones.length;
+    zones.forEach((z,i)=>{const x=12+i*zw;ctx.strokeStyle=css('--rule');ctx.fillStyle=css('--surface');ctx.beginPath();ctx.roundRect(x+4,40,zw-8,110,8);ctx.fill();ctx.stroke();
+      ctx.fillStyle=css('--ink-2');ctx.font='12px IBM Plex Sans, sans-serif';ctx.textAlign='center';ctx.fillText(z.n,x+zw/2,30);
+      const cnt=i===4?done:agents.filter(a=>a.z===i).length; ctx.fillStyle=css('--ink-3');ctx.font='11px IBM Plex Mono, monospace';ctx.fillText(cnt+(i===4?' tasks':' active'),x+zw/2,168);});
+    agents.forEach((a,j)=>{
+      if(!reduce){a.t+=a.speed; if(a.t>=1){a.t=0;a.z++; if(a.z>=4){a.z=0;done++;}}}
+      const x0=12+a.z*zw+zw/2, x1=12+(a.z+1)*zw+zw/2; const moving=a.t>0.7;
+      const p=moving?(a.t-0.7)/0.3:0; const x=x0+(x1-x0)*p; const y=70+(j%3)*26+(moving?Math.sin(p*Math.PI)*-10:0);
+      ctx.fillStyle=css(a.c);ctx.beginPath();ctx.arc(x,y,7,0,7);ctx.fill();
+      ctx.strokeStyle=css('--surface');ctx.lineWidth=2;ctx.stroke();
+      if(!moving){ctx.fillStyle=css('--ink-3');ctx.fillRect(x-10,y+11,20,3);ctx.fillStyle=css(a.c);ctx.fillRect(x-10,y+11,20*(a.t/0.7),3);}
+    });
+    if(!reduce) requestAnimationFrame(frame);
+  }
+  frame();
+})();
+</script>
+
+</body>
+</html>
